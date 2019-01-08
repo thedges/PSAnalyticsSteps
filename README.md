@@ -67,7 +67,7 @@ This will return a JSON object like the following for processing in the dashboar
          "fullText":"WANTED FOR ROBBERY: Unknown male, last seen wearing a dark coat with fur-lined hood, dark sweatpants w/ red stripes &amp; dark boots. On 1/7/19 at 10:50 am he robbed a 77 year-old at gunpoint in the area of Southern Blvd &amp; Barretto in the Bronx. Info? #NYPDconnecting Call @NYPDTips at 800-577-TIPS. https://t.co/kysc0MtVwf",
          "favorited":"false",
          "favoriteCount":36,
-         "createdAt":"Tue Jan 08 17:30:12 +0000 2019",
+         "createdAt":"2019-01-03T13:00:25Z",
          "coordinates":null
       },
       ...
