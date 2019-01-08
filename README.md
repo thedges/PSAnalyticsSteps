@@ -28,6 +28,52 @@ To use the Twitter User Timeline step in your Analytics dashboard according to [
 }
 ```
 
+This will return a JSON object like the following for processing in the dashboard JSON file:
+
+```
+{  
+   "metadata":{  
+      "strings":[  
+         "createdAt",
+         "fullText",
+         "hashTags",
+         "userMentions",
+         "geo",
+         "coordinates",
+         "favorited",
+         "retweeted",
+         "possiblySensitive",
+         "lang"
+      ],
+      "numbers":[  
+         "retweetCount",
+         "favoriteCount"
+      ],
+      "groups":[  
+
+      ]
+   },
+   "data":[  
+      {  
+         "userMentions":"NYPDTips",
+         "retweeted":"false",
+         "retweetCount":48,
+         "possiblySensitive":"false",
+         "place":null,
+         "mediaUrlHttps":"https://pbs.twimg.com/ext_tw_video_thumb/1082689736853151746/pu/img/vA0bL1vG5jVirh34.jpg",
+         "lang":"en",
+         "hashTags":"NYPDconnecting",
+         "geo":null,
+         "fullText":"&#128680;WANTED FOR ROBBERY: Black male, last seen wearing a dark coat with fur-lined hood, dark sweatpants w/ red stripes &amp; dark boots. On 1/7/19 at 10:50 am he robbed a 77 year-old at gunpoint in the area of Southern Blvd &amp; Barretto in the Bronx. Info? #NYPDconnecting Call @NYPDTips at 800-577-TIPS. https://t.co/kysc0MtVwf",
+         "favorited":"false",
+         "favoriteCount":36,
+         "createdAt":"Tue Jan 08 17:30:12 +0000 2019",
+         "coordinates":null
+      },
+      ...
+     ]
+  }
+```
 
 <a href="https://githubsfdeploy.herokuapp.com">
   <img alt="Deploy to Salesforce"
