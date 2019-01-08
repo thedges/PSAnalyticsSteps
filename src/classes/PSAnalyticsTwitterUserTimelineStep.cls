@@ -1,5 +1,23 @@
 @RestResource(urlMapping='/eaTwitterUserTimeline')
 global class PSAnalyticsTwitterUserTimelineStep {
+    private static Map<String, String> monthMap;
+    
+    static {
+        monthMap = new Map<String, String>();
+        monthMap.put('Jan', '01');
+        monthMap.put('Feb', '02');
+        monthMap.put('Mar', '03');
+        monthMap.put('Apr', '04');
+        monthMap.put('May', '05');
+        monthMap.put('Jun', '06');
+        monthMap.put('Jul', '07');
+        monthMap.put('Aug', '08');
+        monthMap.put('Sep', '09');
+        monthMap.put('Oct', '10');
+        monthMap.put('Nov', '11');
+        monthMap.put('Dec', '12');
+    }
+    
     @HttpPost   
     global static String getUserTimeline(String screenName, Integer count, Boolean trimUser, Boolean includeRetweets, String tweetMode) {
         PSTwitterUtils utils = new PSTwitterUtils();
@@ -12,7 +30,7 @@ global class PSAnalyticsTwitterUserTimelineStep {
         for (Tweets tw : tweetsList)
         {
             ReturnItem ri = new ReturnItem();
-            ri.createdAt = tw.created_at;
+            ri.createdAt = tw.getCreatedDTTM();
             ri.fullText = tw.full_text;
             ri.hashTags = tw.getDelimHashtag(',');
             ri.userMentions = tw.getDelimUserMentions(',');
@@ -40,7 +58,7 @@ global class PSAnalyticsTwitterUserTimelineStep {
         PackagedReturnItem pri = new PackagedReturnItem();
         pri.data = returnItemList;
         pri.metadata = rm;
-        return JSON.serializePretty(pri);
+        return JSON.serialize(pri);
     }
     
     public class Tweets {
@@ -57,6 +75,21 @@ global class PSAnalyticsTwitterUserTimelineStep {
         public String lang;
         
         public Entity entities;
+        
+        
+        
+        public String getCreatedDTTM()
+        {
+            if (created_at != null && created_at.length() == 30)
+            {
+                String[] vals = created_at.split(' ');
+                
+                return(vals[5] + '-' + monthMap.get(vals[1]) + '-' + vals[2] + 'T' + vals[3] + 'Z');
+                //"EEE MMM dd HH:mm:ss Z yyyy"
+            }
+            
+            return created_at;
+        }
         
         public String getDelimHashtag(String delim)
         {
