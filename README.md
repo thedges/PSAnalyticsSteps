@@ -20,7 +20,7 @@ To use the Twitter User Timeline step in your Analytics dashboard according to [
             "count": 100,
             "trimUser": true,
             "includeRetweets": false,
-            "tweetMode": "extened",
+            "tweetMode": "extended",
         },
         "path": "eaTwitterUserTimeline"
     },
