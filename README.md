@@ -1,4 +1,6 @@
 # PSAnalyticsSteps
+THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/thedges/Disclaimer/master/disclaimer.txt).
+
 Various Apex code to provide Einstein Analytics custom steps
 
 Post package installation steps:
